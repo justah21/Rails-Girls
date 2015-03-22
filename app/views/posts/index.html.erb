@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mój blog</h1>
+<% @posts.each do |post| %>
+<div class="row">
+  <div class="col-md-8">
+    <h2 class="title-color"><%= post.title %></h2>
+    <div class="content-color"><%= post.content %></div>
+    <%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+
+  <div class="col-md-4">
+    <%= image_tag(post.image,size:"70") %>
+    <br><br>
+  </div>
+</div>
+
+<% end %>
+<br>
+
+<%= link_to 'New Post', new_post_path %>
